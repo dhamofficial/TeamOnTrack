@@ -13,7 +13,10 @@ namespace MyForum.App_Start
 
             bundles.Add(new StyleBundle("~/bundle/css").Include(
                        "~/Content/bootstrap.min.css",
-                       "~/Content/bootstrap-theme.min.css"));
+                       "~/Content/bootstrap-theme.min.css",
+                       "~/Content/plugins/angular-loading-bar/loading-bar.css",
+                       "~/Content/Site.css"
+                       ));
 
             bundles.Add(new ScriptBundle("~/bundle/js").Include(
 
@@ -22,8 +25,9 @@ namespace MyForum.App_Start
                         , "~/Scripts/angular.min.js"
                         , "~/Scripts/angular-route.min.js"
                         , "~/Scripts/angular-resource.min.js"
+                        , "~/Scripts/angular-animate.min.js"
+                        , "~/Content/plugins/angular-loading-bar/loading-bar.js"
                         , "~/Scripts/app.init.js"
-                         
                         ));
 
 

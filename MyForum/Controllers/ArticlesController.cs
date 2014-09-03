@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MyForum.Models;
+using MyForum.Viewmodel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,20 @@ namespace MyForum.Controllers
         // GET: Articles
         public ActionResult Index()
         {
-            return View();
+            ArticlesContainer viewModel = new ArticlesContainer();
+            ArticlesRepository obj = new ArticlesRepository();
+            viewModel.FeaturedArticles = obj.GetFeaturedList();
+
+            return View(viewModel);
+        }
+
+        public ActionResult Favorites()
+        {
+            ArticlesContainer viewModel = new ArticlesContainer();
+            ArticlesRepository obj = new ArticlesRepository();
+            viewModel.FeaturedArticles = obj.GetFeaturedList();
+
+            return View(viewModel);
         }
     }
 }

@@ -3,7 +3,49 @@
     ViewBag.Title = "Articles";
     Layout = null;
 }
-
-<h2>Articles</h2>
-
-<a href="#login">login</a>
+@model MyForum.Viewmodel.ArticlesContainer
+<div class="row">
+    <div class="col-md-8">
+        @foreach (var item in Model.FeaturedArticles)
+        {
+            <div class="articleContainer">
+                <article class="content">                    
+                    <h4 class="title">@item.Title</h4>
+                        <p>Get on board and check our new Subway theme! It brings you a modern boxed layout with a <a href="/demo/themes/joomla/2012/subway/index.php?option=com_content&amp;view=article&amp;id=2&amp;Itemid=2">broad range of options for customization</a>.</p>
+                        <p>You can choose from various color and transparency options. Explore many beautiful designed details like fresh typography, icons, CSS animations and animated backgrounds.</p>
+                </article>   
+                <footer>
+                    <div class="row">
+                        <div class="pull-left col-md-1">
+                            <div class="avatar pull-left">
+                                <img src="~/Images/profile-placeholder.png" />
+                            </div>
+                        </div>
+                        <div class="col-md-1 userinfo">
+                            Dham
+                        </div>
+                        <div class="pull-right rightPanel">
+                            <span>
+                                keyword1, tags2
+                            </span>
+                        </div>
+                    </div>
+                </footer>             
+            </div>
+        }
+    </div>
+    <div class="col-md-4">
+        <div class="articleContainer">
+            <div class="content">
+                <h5 class="title">Categories</h5>
+                    <ul>
+                        <li>Category1</li>
+                        <li>Category1</li>
+                        <li>Category1</li>
+                        <li>Category1</li>
+                        <li>Category1</li>
+                    </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - MyForum</title>
+    <title>@ViewBag.Title - TeamOnTrack</title>
     @Styles.Render("~/bundle/css")
     @Scripts.Render("~/bundle/js")
 </head>
@@ -18,18 +18,30 @@
                 </button>
                 @Html.ActionLink("MyForum", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
+            <div class="navbar-collapse collapse pull-right">
                 <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Featured</a></li>
+                    <li><a href="#favorites">Favorites</a></li>
+                    <li><a href="#">New Post</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dham <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Change Password</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Logout</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <div class="container body-content" style="margin:10px; margin-top:40px;">
+    <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - MyForum</p>
+            <p>&copy; @DateTime.Now.Year - TeamOnTrack</p>
         </footer>
     </div>
 </body>
