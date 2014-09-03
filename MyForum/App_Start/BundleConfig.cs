@@ -21,6 +21,7 @@ namespace MyForum.App_Start
                         , "~/Scripts/bootstrap.min.js"
                         , "~/Scripts/angular.min.js"
                         , "~/Scripts/angular-route.min.js"
+                        , "~/Scripts/angular-resource.min.js"
                         , "~/Scripts/app.init.js"
                          
                         ));
