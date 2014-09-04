@@ -119,7 +119,6 @@
     <Content Include="Content\plugins\angular-loading-bar\loading-bar.css" />
     <Content Include="Content\plugins\angular-loading-bar\loading-bar.js" />
     <Content Include="Content\Site.css" />
-    <Content Include="Content\template-bd9cb0b5.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -471,6 +470,7 @@
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
     <Content Include="Views\Articles\Favorites.cshtml" />
+    <Content Include="Views\Articles\NewPost.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

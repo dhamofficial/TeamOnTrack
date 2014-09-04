@@ -28,5 +28,13 @@ namespace MyForum.Controllers
 
             return View(viewModel);
         }
+
+        public ActionResult NewPost()
+        {
+
+
+
+            return View();
+        }
     }
 }

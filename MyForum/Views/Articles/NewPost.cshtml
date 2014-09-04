@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "NewPost";
+    Layout = null;
+}
+<div class="row container">
+    <div class="col-md-8">
+        <h2 class="title">create new post</h2>
+        <div class="articleContainer">
+            <div class="row">
+                <div class="col-md-12">
+                    <form role="form" class="form-horizontal form-group" style="padding:30px;">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Title</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Post Title">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Short Description</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Short Description">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Content</label>
+                            <textarea class="form-control" rows="10" id="exampleInputEmail1" placeholder="Post Content"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="radio" id="rdoTellMembers" /><label for="rdoTellMembers">Notify my team members</label>
+                            <div class="clearfix"></div>
+                            <input type="radio" id="rdoTellAll"/><label for="rdoTellAll">Notify all members</label>
+                        </div>
+                        <button type="submit" class="btn btn-default">Create User</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
