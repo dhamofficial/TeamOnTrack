@@ -11,6 +11,7 @@ app.config(['$routeProvider',function ($routeProvider) {
     .when('/favorites', { templateUrl: appname + '/articles/favorites', controller: 'FavoritesCtrl' })
     .when('/newpost', { templateUrl: appname + '/articles/newpost', controller: 'FavoritesCtrl' })
     .when('/category/:categoryId', { templateUrl: function (param) { return appname + '/articles/Category/' + param.categoryId }, controller: 'SearchCtrl' })
+    .when('/team/:teamId', { templateUrl: function (param) { return appname + '/articles/team/' + param.teamId }, controller: 'SearchCtrl' })
     .when('/login', { templateUrl: appname + '/login', controller: 'LoginCtrl' })
     .when('/logout', { templateUrl: 'admin/login.html', controller: 'LogoutCtrl' })
     .otherwise({ redirectTo: '/' });
@@ -42,6 +43,5 @@ $(document).ready(function () {
         if (!$parent.hasClass('active')) {
             $parent.addClass('active');
         }
-        e.preventDefault();
     });
 });
