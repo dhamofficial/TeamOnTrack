@@ -41,7 +41,10 @@ h5.title{
     color:#ffffff;
 }
 .articleContainer .content {
-    padding:20px;
+    padding-left:20px;
+    padding-right:20px;
+    padding-top:5px;
+    padding-bottom:10px;
     }
 .articleContainer footer {
     margin-bottom:0px;
@@ -62,4 +65,14 @@ h5.title{
 .articleContainer .rightPanel{
     margin-right:25px;
     margin-top:10px;
+}
+
+.articleContainer ul {
+list-style:none;
+}
+.articleContainer ul>li{
+padding-bottom:5px;
+}
+.articleContainer ul>li a{
+color:#ffffff;
 }
