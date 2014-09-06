@@ -46,5 +46,17 @@
                     </ul>
             </div>
         </div>
+        <div class="articleContainer">
+            <div class="content">
+                <h5 class="title">Teams</h5>
+                <ul>
+                    @foreach (var item in Model.Teams)
+                    {
+                        <li><a href="#team/@item.UID">@item.TeamName</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+
     </div>
 </div>
