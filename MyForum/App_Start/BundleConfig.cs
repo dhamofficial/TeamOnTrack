@@ -27,6 +27,7 @@ namespace MyForum.App_Start
                         , "~/Scripts/angular-resource.min.js"
                         , "~/Scripts/angular-animate.min.js"
                         , "~/Content/plugins/angular-loading-bar/loading-bar.js"
+                        , "~/Content/plugins/noty/packaged/jquery.noty.packaged.min.js"
                         , "~/Scripts/app.init.js"
                         ));
 

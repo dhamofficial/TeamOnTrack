@@ -2,7 +2,8 @@
     ViewBag.Title = "NewPost";
     Layout = null;
 }
-<div class="row container">
+@model MyForum.Viewmodel.ArticlesContainer
+<div class="row container" ng-controller="NewPostCtrl">
     <div class="col-md-8">
         <h2 class="title">create new post</h2>
         <div class="articleContainer">
@@ -11,50 +12,48 @@
                     <form role="form" class="form-horizontal form-group" style="padding:30px;">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Title</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Post Title">
+                            <input type="text" class="form-control" id="exampleInputEmail1" ng-model="Title" placeholder="Post Title">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Short Description</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Short Description">
+                            <textarea class="form-control" id="exampleInputEmail1" ng-model="ShortDescription" placeholder="Short Description" maxlength="200" rows="2"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Content</label>
-                            <textarea class="form-control" rows="10" id="exampleInputEmail1" placeholder="Post Content"></textarea>
+                            <textarea class="form-control" rows="10" id="exampleInputEmail1" ng-model="Description" placeholder="Post Content"></textarea>
                         </div>
                         <div class="form-group">
-                            <input type="radio" id="rdoTellMembers" /><label for="rdoTellMembers">Notify my team members</label>
-                            <div class="clearfix"></div>
-                            <input type="radio" id="rdoTellAll"/><label for="rdoTellAll">Notify all members</label>
+                            <input type="checkbox" id="rdoTellAll" /><label for="rdoTellAll">Notify all team members</label>
                         </div>
-                        <button type="submit" class="btn btn-default">Create User</button>
+                        <div class="form-group">
+                            <div class="col-md-3"></div>
+                            <button type="submit" class="btn btn-default col-md-5" ng-click="createPost()">Create Post</button>
+                        </div>
                     </form>
-
                 </div>
             </div>
         </div>
     </div>
     <div class="col-md-4">
-        <div class="row">
-            <h2 class="title">&nbsp;</h2>
-            <div class="articleContainer">
-                <div class="content">
-                    <h5 class="title">Categories</h5>
+        <h2 class="title">&nbsp;</h2>
+        <div class="articleContainer">
+            <h5 class="widgetTitle">Category</h5>
+            <div class="content">
+                <div class="input-group">
                     <ul>
-                        <li>Category1</li>
-                        <li>Category1</li>
-                        <li>Category1</li>
-                        <li>Category1</li>
-                        <li>Category1</li>
+                        @foreach (var item in Model.Categories)
+                        {
+                            <li><input type="checkbox" id="@item.UID" name="selectedCategories" /><label for="@item.UID"> @item.CategoryName</label></li>
+                        }
                     </ul>
                 </div>
             </div>
-         
-            <div class="articleContainer">
-                <div class="content">
-                    <h5 class="title">tags</h5>
-                    <div class="form-group">
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Post Title">
-                    </div>
+        </div>
+        <div class="articleContainer">
+            <h5 class="widgetTitle">Tags</h5>
+            <div class="content">
+                <div class="form-group">
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Post Title">
                 </div>
             </div>
         </div>

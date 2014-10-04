@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace MyForum.Controllers
 {
     public class ArticlesController : Controller
@@ -22,8 +23,7 @@ namespace MyForum.Controllers
         // GET: Articles
         public ActionResult Index()
         {
-            var viewModel = GetArticleContainer(filter);
-
+            var viewModel = GetFeaturedtArticleContainer(filter);
             return View(viewModel);
         }
 
@@ -57,7 +57,36 @@ namespace MyForum.Controllers
 
         public ActionResult NewPost()
         {
-            return View();
+            var viewModel = GetArticleContainer(filter);
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public JsonResult NewPost(Article model)
+        {
+            ArticlesRepository articleRepo = new ArticlesRepository();
+            model.Status = "New";
+
+            var articleid = articleRepo.SaveArticle(model);
+
+            MessageContainer msgContainer = new MessageContainer();
+            msgContainer.Message = "Article Created Successfully.";
+            msgContainer.MessageType = "success";
+
+            return Json(msgContainer);
+        }
+
+        ArticlesContainer GetFeaturedtArticleContainer(SearchFilter filter)
+        {
+            ArticlesContainer viewModel = new ArticlesContainer();
+            ArticlesRepository obj = new ArticlesRepository();
+            TeamRepository teamObj = new TeamRepository();
+
+            viewModel.FeaturedArticles = obj.GetFeaturedList();
+            viewModel.Categories = obj.GetCategories();
+            viewModel.Teams = teamObj.GetTeams();
+
+            return viewModel;
         }
 
         ArticlesContainer GetArticleContainer(SearchFilter filter)

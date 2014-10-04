@@ -11,8 +11,7 @@
             <div class="articleContainer">
                 <article class="content">                    
                     <h4 class="title">@item.Title</h4>
-                        <p>Get on board and check our new Subway theme! It brings you a modern boxed layout with a <a href="/demo/themes/joomla/2012/subway/index.php?option=com_content&amp;view=article&amp;id=2&amp;Itemid=2">broad range of options for customization</a>.</p>
-                        <p>You can choose from various color and transparency options. Explore many beautiful designed details like fresh typography, icons, CSS animations and animated backgrounds.</p>
+                        <p>@item.ShortDescription</p>
                 </article>   
                 <footer>
                     <div class="row">
@@ -22,11 +21,11 @@
                             </div>
                         </div>
                         <div class="col-md-1 userinfo">
-                            Dham
+                            @item.CreatedByName
                         </div>
-                        <div class="pull-right rightPanel">
+                        <div class="pull-right rightPanel smallComments">
                             <span>
-                                keyword1, tags2
+                                keyword1, tags2 / Category: @item.CategoryName
                             </span>
                         </div>
                     </div>
@@ -46,7 +45,7 @@
                     </ul>
             </div>
         </div>
-        <div class="articleContainer">
+        @*<div class="articleContainer">
             <div class="content">
                 <h5 class="title">Teams</h5>
                 <ul>
@@ -56,7 +55,7 @@
                     }
                 </ul>
             </div>
-        </div>
+        </div>*@
 
     </div>
 </div>

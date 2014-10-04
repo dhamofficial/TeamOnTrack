@@ -123,6 +123,24 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\plugins\angular-loading-bar\loading-bar.css" />
     <Content Include="Content\plugins\angular-loading-bar\loading-bar.js" />
+    <Content Include="Content\plugins\noty\jquery.noty.js" />
+    <Content Include="Content\plugins\noty\layouts\bottom.js" />
+    <Content Include="Content\plugins\noty\layouts\bottomCenter.js" />
+    <Content Include="Content\plugins\noty\layouts\bottomLeft.js" />
+    <Content Include="Content\plugins\noty\layouts\bottomRight.js" />
+    <Content Include="Content\plugins\noty\layouts\center.js" />
+    <Content Include="Content\plugins\noty\layouts\centerLeft.js" />
+    <Content Include="Content\plugins\noty\layouts\centerRight.js" />
+    <Content Include="Content\plugins\noty\layouts\inline.js" />
+    <Content Include="Content\plugins\noty\layouts\top.js" />
+    <Content Include="Content\plugins\noty\layouts\topCenter.js" />
+    <Content Include="Content\plugins\noty\layouts\topLeft.js" />
+    <Content Include="Content\plugins\noty\layouts\topRight.js" />
+    <Content Include="Content\plugins\noty\packaged\jquery.noty.packaged.js" />
+    <Content Include="Content\plugins\noty\packaged\jquery.noty.packaged.min.js" />
+    <Content Include="Content\plugins\noty\promise.js" />
+    <Content Include="Content\plugins\noty\themes\bootstrap.js" />
+    <Content Include="Content\plugins\noty\themes\default.js" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -470,6 +488,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\MessageContainer.cs" />
     <Compile Include="Models\TeamRepository.cs" />
     <Compile Include="Models\ArticlesRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -482,7 +501,7 @@
     <Content Include="Views\Articles\Favorites.cshtml" />
     <Content Include="Views\Articles\NewPost.cshtml" />
     <Content Include="Views\Articles\Search.cshtml" />
-    <Content Include="Views\Articles\Post.cshtml" />
+    <Content Include="Views\Articles\PostDetail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
