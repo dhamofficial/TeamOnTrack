@@ -1,9 +1,9 @@
-﻿@{
-    ViewBag.Title = "Search Articles";
+﻿
+@{
     Layout = null;
 }
 @model MyForum.Viewmodel.ArticlesContainer
-<div class="row" ng-controller="SearchCtrl">
+<div class="row">
     <div class="col-md-8">
         @foreach (var item in Model.FeaturedArticles)
         {
@@ -22,14 +22,10 @@
                         <div class="col-md-1 userinfo">
                             @item.CreatedByName
                         </div>
-                        <div class="pull-right rightPanel smallComments">                            
-                            <span>
-                                @item.CategoryName
-                            </span>
-                        </div>
                         <div class="pull-right rightPanel smallComments">
+                            <a href="#editArticle/@item.UID">edit</a>/
                             <span>
-                                keyword1, tags2
+                                keyword1, tags2 / Category: @item.CategoryName
                             </span>
                         </div>
                     </div>
@@ -48,6 +44,6 @@
                     }
                 </ul>
             </div>
-        </div>
+        </div> 
     </div>
 </div>

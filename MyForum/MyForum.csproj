@@ -502,6 +502,7 @@
     <Content Include="Views\Articles\NewPost.cshtml" />
     <Content Include="Views\Articles\Search.cshtml" />
     <Content Include="Views\Articles\PostDetail.cshtml" />
+    <Content Include="Views\Articles\MyArticles.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

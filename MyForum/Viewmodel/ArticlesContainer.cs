@@ -13,5 +13,6 @@ namespace MyForum.Viewmodel
 
         public IEnumerable<Category> Categories;
         public IList<int> selectedCategories { get; set; }
+        public Article SelectedArticle { get; set; }
     }
 }

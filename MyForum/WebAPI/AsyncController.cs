@@ -17,7 +17,13 @@ namespace MyForum.WebAPI
         {
             ArticlesContainer viewModel = new ArticlesContainer();
             ArticlesRepository obj = new ArticlesRepository();
-            return obj.GetFeaturedList();
+            SearchFilter filter = new SearchFilter();
+            if (id > 0)
+            {
+                filter.CategoryID = Convert.ToInt32( id);
+                return obj.SearchArticles(filter);
+            }
+            else return null;
         }
 
 

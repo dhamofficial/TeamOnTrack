@@ -8,9 +8,11 @@ app.config(['cfpLoadingBarProvider', function (cfpLoadingBarProvider) {
 app.config(['$routeProvider',function ($routeProvider) {
     $routeProvider
     .when('/', { templateUrl: appname+'/articles', controller: 'homeCtrl',title:'Featured Articles' })
-    .when('/favorites', { templateUrl: appname + '/articles/favorites', controller: 'FavoritesCtrl',title:'Pinned Articles' })
+    .when('/favorites', { templateUrl: appname + '/articles/favorites', controller: 'FavoritesCtrl', title: 'Pinned Articles' })
+    .when('/myarticles', { templateUrl: appname + '/articles/MyArticles', controller: 'FavoritesCtrl', title: 'My Articles' })
     .when('/newpost', { templateUrl: appname + '/articles/newpost', controller: 'NewPostCtrl', title: 'Create new Post' })
-    .when('/category/:categoryId', { templateUrl: function (param) { return appname + '/articles/Category/' + param.categoryId }, controller: 'SearchCtrl',title:'Articles by Category' })
+    .when('/category/:categoryId', { templateUrl: function (param) { return appname + '/articles/Category/' + param.categoryId }, controller: 'SearchCtrl', title: 'Articles by Category' })
+    .when('/editArticle/:articleId', { templateUrl: function (param) { return appname + '/articles/article/' + param.articleId }, controller: 'SearchCtrl', title: 'Articles by Category' })
     .when('/team/:teamId', { templateUrl: function (param) { return appname + '/articles/team/' + param.teamId }, controller: 'SearchCtrl',title:'My Team Articles' })
     .when('/login', { templateUrl: appname + '/login', controller: 'LoginCtrl' })
     .when('/logout', { templateUrl: 'admin/login.html', controller: 'LogoutCtrl' })
@@ -55,17 +57,16 @@ app.controller("FavoritesCtrl", ['$scope', '$routeParams', function ($scope, $ro
 }]);
 
 app.controller("NewPostCtrl", ['$scope', '$routeParams', '$http', '$location', function ($scope, $routeParams, $http, $location) {
-    $scope.Title = '';
-    $scope.ShortDescription = '';
-    $scope.Description = '';
-    $scope.cfdump = "";
-
+    $scope.init = function (a) {
+        console.log(a); // prints value of name
+    }
     $scope.createPost = function () {
         var post = {
             Title: $scope.Title, ShortDescription: $scope.ShortDescription,
             PostContent: $scope.Description,
             CategoryID: 1, CreatedBy: 1
         };
+        console.log(post);
         $http.post(appname + "/Articles/NewPost", post).success(function (data, status, headers, config) {
             showMessage(data);
             if(data.MessageType=='success') $('input,textarea').each(function (index, item) {$(item).val(''); });

@@ -3,7 +3,7 @@
     Layout = null;
 }
 @model MyForum.Viewmodel.ArticlesContainer
-<div class="row container" ng-controller="NewPostCtrl">
+<div class="row container" ng-controller="NewPostCtrl" id="NewPostCtrl">
     <div class="col-md-8">
         <h2 class="title">create new post</h2>
         <div class="articleContainer">
@@ -11,12 +11,12 @@
                 <div class="col-md-12">
                     <form role="form" class="form-horizontal form-group" style="padding:30px;">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Title</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" ng-model="Title" placeholder="Post Title">
+                            <label for="exampleInputEmail1">Title: @Model.SelectedArticle.Title</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Post Title" value="@Model.SelectedArticle.Title" />
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Short Description</label>
-                            <textarea class="form-control" id="exampleInputEmail1" ng-model="ShortDescription" placeholder="Short Description" maxlength="200" rows="2"></textarea>
+                            <textarea class="form-control" id="exampleInputEmail1" ng-model="ShortDescription" placeholder="Short Description" maxlength="200" rows="2">@Model.SelectedArticle.ShortDescription</textarea>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Content</label>
@@ -43,7 +43,7 @@
                     <ul>
                         @foreach (var item in Model.Categories)
                         {
-                            <li><input type="checkbox" id="@item.UID" name="selectedCategories" /><label for="@item.UID"> @item.CategoryName</label></li>
+                        <li><input type="checkbox" id="@item.UID" name="selectedCategories" /><label for="@item.UID"> @item.CategoryName</label></li>
                         }
                     </ul>
                 </div>
@@ -59,3 +59,10 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function(){
+        var $scope = angular.element($("#NewPostCtrl")).scope();
+        //$scope.init(a);
+        var a=@Html.Raw(Json.Encode(Model.SelectedArticle));
+    });
+</script>

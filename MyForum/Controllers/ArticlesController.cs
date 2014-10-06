@@ -34,6 +34,21 @@ namespace MyForum.Controllers
             return View(viewModel);
         }
 
+        public ActionResult MyArticles()
+        {
+            var viewModel = GetArticleContainer(filter);
+
+            return View(viewModel);
+        }
+
+        public ActionResult Article(int? id)
+        {
+            filter.ArticleID = Convert.ToInt32(id);
+            var viewModel = GetArticleContainer(filter);
+
+            return View("NewPost", viewModel);
+        }
+
         public ActionResult Category(int? id)
         {
             filter.CategoryID = Convert.ToInt32(id);
@@ -81,8 +96,8 @@ namespace MyForum.Controllers
             ArticlesContainer viewModel = new ArticlesContainer();
             ArticlesRepository obj = new ArticlesRepository();
             TeamRepository teamObj = new TeamRepository();
-
-            viewModel.FeaturedArticles = obj.GetFeaturedList();
+            filter.IsFeatured = true;
+            viewModel.FeaturedArticles = obj.SearchArticles(filter);
             viewModel.Categories = obj.GetCategories();
             viewModel.Teams = teamObj.GetTeams();
 
@@ -98,6 +113,13 @@ namespace MyForum.Controllers
             viewModel.FeaturedArticles = obj.SearchArticles(filter);
             viewModel.Categories = obj.GetCategories();
             viewModel.Teams = teamObj.GetTeams();
+
+            Article selectedArticle = new Article();
+            if (filter != null && filter.ArticleID > 0 && viewModel.FeaturedArticles.Count() > 0)
+            {
+                selectedArticle = viewModel.FeaturedArticles.FirstOrDefault();
+            }
+            viewModel.SelectedArticle = selectedArticle;
 
             return viewModel;
         }
